@@ -19,6 +19,35 @@ if (navToggle && navLinks) {
 }
 
 /* ==========================================================================
+   ACTIVE NAV LINK ON SCROLL
+   Highlights the nav link matching whichever section is in view.
+   ========================================================================== */
+(function initActiveNavLink() {
+  const sections = document.querySelectorAll('main section[id]');
+  const navAnchors = document.querySelectorAll('.nav__links a[href^="#"]');
+  if (!sections.length || !navAnchors.length) return;
+
+  const linkFor = (id) =>
+    document.querySelector(`.nav__links a[href="#${id}"]`);
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const link = linkFor(entry.target.id);
+          if (!link) return;
+          navAnchors.forEach((a) => a.classList.remove('is-active'));
+          link.classList.add('is-active');
+        }
+      });
+    },
+    { rootMargin: '-45% 0px -50% 0px', threshold: 0 }
+  );
+
+  sections.forEach((section) => observer.observe(section));
+})();
+
+/* ==========================================================================
    BACKGROUND PARTICLE NETWORK
    One quiet, orchestrated ambient animation behind the whole page —
    slow-drifting nodes with connecting lines, subtle enough not to compete

@@ -382,3 +382,104 @@ header, main, footer {
   }
   .hero__scroll-cue { animation: none; }
 }
+
+/* ==========================================================================
+   ABOUT
+   ========================================================================== */
+.about__grid {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.about__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about__ring {
+  position: absolute;
+  inset: -14px;
+  border: 1px dashed var(--border-strong);
+  border-radius: 50%;
+}
+
+.about__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--border-strong);
+}
+
+.about__content .section-eyebrow { color: var(--accent-ai); }
+
+.about__body {
+  margin-top: 18px;
+  color: var(--text-secondary);
+  max-width: 640px;
+}
+
+.about__facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-top: 32px;
+}
+
+.fact {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+}
+
+.fact__icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.fact__icon svg { width: 16px; height: 16px; }
+
+.fact__icon--motion { color: var(--accent-motion); }
+.fact__icon--mobile { color: var(--accent-mobile); }
+.fact__icon--ai { color: var(--accent-ai); }
+
+.about__quote {
+  margin: 32px 0 0;
+  padding: 20px 24px;
+  border-left: 3px solid transparent;
+  border-image: var(--gradient-brand) 1;
+  background: var(--surface);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.02rem;
+  color: var(--text-primary);
+  max-width: 640px;
+}
+
+@media (max-width: 780px) {
+  .about__grid {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+  .about__media { max-width: 220px; }
+  .about__facts { justify-content: center; }
+  .fact { justify-content: center; }
+  .about__quote { text-align: left; }
+}

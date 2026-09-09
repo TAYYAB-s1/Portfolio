@@ -354,6 +354,18 @@ header, main, footer {
 .btn--primary:hover { opacity: 0.92; }
 .btn--ghost:hover { border-color: var(--text-secondary); }
 
+.btn--whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: #25D366;
+  color: #063d21;
+  font-weight: 600;
+}
+
+.btn--whatsapp svg { width: 18px; height: 18px; }
+.btn--whatsapp:hover { opacity: 0.92; }
+
 .hero__scroll-cue {
   position: absolute;
   bottom: 36px;
@@ -791,6 +803,13 @@ a.project-card:hover {
 }
 
 .contact__icon svg { width: 17px; height: 17px; }
+
+.contact__item--whatsapp:hover { border-color: #25D366; }
+.contact__icon--whatsapp {
+  background: rgba(37, 211, 102, 0.12);
+  border-color: rgba(37, 211, 102, 0.35);
+  color: #25D366;
+}
 
 @media (max-width: 780px) {
   .contact__grid { grid-template-columns: 1fr; }

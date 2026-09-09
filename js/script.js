@@ -59,7 +59,7 @@ if (navToggle && navLinks) {
   if (!form) return;
 
   const YOUR_EMAIL = 'tayyabshahbaz2005@gmail.com';
-
+  const YOUR_PHONE = '+923289204698';
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 

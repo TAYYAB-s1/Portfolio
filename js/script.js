@@ -48,6 +48,33 @@ if (navToggle && navLinks) {
 })();
 
 /* ==========================================================================
+   CONTACT FORM — mailto fallback
+   No backend is wired up, so submitting opens the visitor's email app with
+   the message pre-filled to your address. Swap this for a real endpoint
+   (e.g. Formspree, EmailJS) later if you want it to send without opening
+   an email client.
+   ========================================================================== */
+(function initContactForm() {
+  const form = document.getElementById('contact-form');
+  if (!form) return;
+
+  const YOUR_EMAIL = 'tayyabshahbaz2005@gmail.com';
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const message = form.message.value.trim();
+
+    const subject = encodeURIComponent(`Portfolio inquiry from ${name}`);
+    const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
+
+    window.location.href = `mailto:${YOUR_EMAIL}?subject=${subject}&body=${body}`;
+  });
+})();
+
+/* ==========================================================================
    BACKGROUND PARTICLE NETWORK
    One quiet, orchestrated ambient animation behind the whole page —
    slow-drifting nodes with connecting lines, subtle enough not to compete

@@ -87,3 +87,6 @@ Color-coding is used functionally, not just decoratively — each discipline has
 ---
 
 © 2026 Muhammad Tayyab. All rights reserved.
+
+
+## the END
